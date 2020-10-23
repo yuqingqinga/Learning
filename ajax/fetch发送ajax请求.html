@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch发送ajax请求</title>
+</head>
+<body>
+    <button>ajax请求</button>
+    <script>
+        const button = document.getElementsByTagName('button')[0];
+
+        button.onclick = function(){
+            fetch('http://127.0.0.1:8000/fetch-server?vip=100',{
+                //请求方法
+                method:'POST',
+                //请求头
+                headers:{
+                    name:'lala',
+                    sex:'man',
+                },
+                //请求体
+                body:' username=yuqingqing&password=1234567',
+            }).then(Response=>{
+                // return Response.text();
+                return Response.json();
+            }).then(Response=>{
+                console.log(Response);
+            })
+        }
+    </script>
+</body>
+</html>
